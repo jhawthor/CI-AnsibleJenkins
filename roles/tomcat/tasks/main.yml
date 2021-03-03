@@ -3,13 +3,6 @@
 - name: copy war file
   copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat/webapps/
 
-- name: Stop Tomcat service
-  systemd:
-   name: tomcat9
-   state: stopped
-   enabled: true
-   daemon_reload: true
-
 - name: Start Tomcat service
   systemd:
     name: tomcat9
