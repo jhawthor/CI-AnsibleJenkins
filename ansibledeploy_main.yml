@@ -21,7 +21,9 @@
       
     - name: stop tomcat
       command: service tomcat9 stop
+      warn: false
 
     - name: start tomcat
       command: service tomcat9 start
+      warn: false
        
