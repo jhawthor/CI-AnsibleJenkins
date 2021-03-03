@@ -19,12 +19,9 @@
         src: ./target/LoginWebApp-1.war 
         dest: /var/lib/tomcat9/webapps
       
-    - name: stop tomcat
-      command: service tomcat9 stop
-
-    - name: start tomcat
-      command: service tomcat9 start
-
-
+    - name: restart tomcat
+      service:
+       name: tomcat
+       state: restarted
 
        
