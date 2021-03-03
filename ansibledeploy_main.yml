@@ -18,11 +18,10 @@
       copy: 
         src: ./target/LoginWebApp-1.war 
         dest: /var/lib/tomcat9/webapps
-        
+      
     - name: restart tomcat
-      command: pwd
+      service:
+       name: tomcat
+       state: restarted
 
-    # - name: restart tomcat
-    #   service:
-    #    name: tomcat
-    #    state: restarted
+       
