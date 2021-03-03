@@ -4,13 +4,8 @@
   become_user: root
   gather_facts: true
   tasks:
-    # - name: maven clean package
-    #   shell: mvn clean package
-    #   args:
-    #    chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test/
-
     - name: maven clean package
-      shell: pwd
+      command: mvn clean package
       # args:
       #  chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test/
     
@@ -18,13 +13,8 @@
       copy: 
         src: ./target/LoginWebApp-1.war 
         dest: /var/lib/tomcat9/webapps
-
-    - name: restart tomcat
-      copy: 
-        src: ./target/LoginWebApp-1.war 
-        dest: /var/lib/tomcat9/webapps
     
-    # - name: restart tomcat
-    #   service:
-    #    name: tomcat9
-    #    state: restarted
+    - name: restart tomcat
+      service:
+       name: tomcat
+       state: restarted
