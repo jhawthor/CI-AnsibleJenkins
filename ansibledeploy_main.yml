@@ -9,10 +9,10 @@
         src: ./target/LoginWebApp-1.war 
         dest: /var/lib/tomcat9/webapps
     
-    - name: restart tomcat
-      service:
-       name: tomcat9
-       state: restarted
+    # - name: restart tomcat
+    #   service:
+    #    name: tomcat9
+    #    state: restarted
       
     - name: restart tomcat
       copy: 
