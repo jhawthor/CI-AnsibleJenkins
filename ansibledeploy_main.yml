@@ -5,7 +5,7 @@
   gather_facts: true
   tasks:
     - name: maven clean package
-      cmd: mvn clean package
+      shell: mvn clean package
       args:
        chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test
     
