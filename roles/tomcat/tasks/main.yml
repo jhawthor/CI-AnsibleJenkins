@@ -1,6 +1,15 @@
 ---
   
-- name: copy war file
-  copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat/webapps/
+  - name: copy war file
+    copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat/webapps/
 
-  notify: restart tomcat
+
+    # notify: restart tomcat
+
+  - name: Start and enable Tomcat service
+    systemd:
+      name: tomcat
+      state: restarted
+      enabled: true
+      daemon_reload: true
+
