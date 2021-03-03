@@ -7,7 +7,7 @@
     - name: maven clean package
       command: mvn clean package
       args:
-        chdir: /home/sysadmin/CI-AnsibleJenkins
+        chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test
     
     - name: copy war file
       copy: 
