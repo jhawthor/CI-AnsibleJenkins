@@ -13,7 +13,6 @@
   become: true
   become_user: root
   gather_facts: true
-  warn: false
   tasks:    
     - name: copy war file
       copy: 
@@ -22,8 +21,12 @@
       
     - name: stop tomcat
       command: service tomcat9 stop
+      args:
+       warn: false # set warn=false to prevent warning
 
     - name: start tomcat
       command: service tomcat9 start
+      args:
+       warn: false # set warn=false to prevent warning
 
        
