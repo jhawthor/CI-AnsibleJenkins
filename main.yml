@@ -13,9 +13,9 @@
 
     - name: Restart Tomcat service
       systemd:
-        name: tomcat
+        name: tomcat9
         state: restarted
         enabled: true
-        daemon_reload: true
+
 
       
