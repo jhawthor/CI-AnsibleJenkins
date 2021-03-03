@@ -1,17 +1,19 @@
         
-- hosts: webservers
+- hosts: CI
   become: true
   become_user: root
   gather_facts: true
   tasks:
-    # - name: maven clean package
-    #   command: mvn clean package
-    #   args:
-    #    chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test/
-    
     - name: maven clean package
-      command: pwd
+      command: mvn clean package
+      args:
+       chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test/
 
+- hosts: webservers
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:    
     - name: copy war file
       copy: 
         src: ./target/LoginWebApp-1.war 
