@@ -7,7 +7,7 @@
     - name: maven clean package
       shell: mvn clean package
       args:
-       chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test
+       chdir: /var/lib/jenkins/workspace/Deploy_JavaApp_Test/
     
     - name: copy war file
       copy: 
