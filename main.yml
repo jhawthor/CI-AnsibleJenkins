@@ -1,15 +1,9 @@
         
-- hosts: webservers
+- hosts: all
   become: true
   become_user: root
   gather_facts: false
-  
-- name: copy war file
-  copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat/webapps/
-
-- name: Restart Tomcat service
-  systemd:
-    name: tomcat
-    state: restarted
-    enabled: true
-    daemon_reload: true
+  tasks:
+    - include_role:
+        name: tomcat
+      

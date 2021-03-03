@@ -1,7 +1,9 @@
 ---
   
   - name: copy war file
-    copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat/webapps/
+    copy: 
+      src: ./target/LoginWebApp-1.war 
+      dest: /opt/apache-tomcat/webapps/
 
 
   - name: Restart Tomcat service
